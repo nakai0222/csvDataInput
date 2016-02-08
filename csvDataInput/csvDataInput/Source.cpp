@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <vector>
 using namespace std;
 
@@ -29,13 +30,29 @@ int main() {
 		inner.push_back(str);
 		values.push_back(inner);
 	}
-
+	/*
 	for (unsigned int i = 0; i < values.size(); ++i) {
 		for (unsigned int j = 0; j < values[i].size(); ++j) {
 			cout << values[i][j] << ",";
 		}
 		cout << endl;
-		getchar();
+		//getchar();
+	}
+	*///
+
+	//string->double vector‚Æ‚µ‚Ä‚ÂB
+	vector<vector<double>> csv_data;
+	stringstream ss;
+	double ss_d;
+
+	for (unsigned int i = 0; i < values.size(); ++i) {
+		for (unsigned int j = 0; j < values[i].size(); ++j) {
+			if ((p = str.find("comment")) != str.npos) continue;
+			ss << values[i][j];
+			ss >> ss_d;
+			csv_data[i].push_back(ss_d);
+			csv_data[i].push_back(stof(values[i][j]));
+		}
 	}
 
 	return 0;
