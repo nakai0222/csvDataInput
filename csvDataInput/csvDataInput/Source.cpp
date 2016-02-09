@@ -42,15 +42,10 @@ int main() {
 
 	//string->double vector‚Æ‚µ‚Ä‚ÂB
 	vector<vector<double>> csv_data;
-	stringstream ss;
-	double ss_d;
-
+	
 	for (unsigned int i = 0; i < values.size(); ++i) {
 		for (unsigned int j = 0; j < values[i].size(); ++j) {
 			if ((p = str.find("comment")) != str.npos) continue;
-			ss << values[i][j];
-			ss >> ss_d;
-			csv_data[i].push_back(ss_d);
 			csv_data[i].push_back(stof(values[i][j]));
 		}
 	}
